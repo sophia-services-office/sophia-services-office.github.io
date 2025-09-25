@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sophia & IT</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 导航栏 -->
+  <div class="navbar">
+    <div class="logo">Sophia & IT</div>
+    <div class="lang-buttons">
+      <button onclick="setLang('zh')">中文</button>
+      <button onclick="setLang('en')">English</button>
+      <button onclick="setLang('hy')">Հայերեն</button>
+      <button onclick="setLang('ru')">Русский</button>
+      <button onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+
+  <!-- 横幅 -->
+  <div class="hero">
+    <h1 id="heroTitle">Sophia & IT</h1>
+    <p id="heroSubtitle">Turning Ideas into Digital Reality.</p>
+    <a href="#contactSection" id="heroButton">Contact Us</a>
+  </div>
+
+  <!-- 主体内容 -->
+  <div class="container">
+    <!-- 公司信息 -->
+    <div class="card">
+      <h3 id="infoTitle"></h3>
+      <p><b id="addressLabel"></b> <span id="address"></span></p>
+      <p><b id="emailLabel"></b> <a id="emailLink" href=""></a></p>
+      <p><b id="dateLabel"></b> <span id="date"></span></p>
+    </div>
+
+    <!-- 服务 -->
+    <div class="card">
+      <h3 id="servicesTitle"></h3>
+      <ul id="services"></ul>
+    </div>
+
+    <!-- 联系表单 -->
+    <div class="card" id="contactSection">
+      <h3 id="contactTitle"></h3>
+      <form action="https://formspree.io/f/your-id" method="POST">
+        <label id="nameLabel"><input type="text" name="name" required></label>
+        <label id="contactLabel"><input type="text" name="contact" required></label>
+        <label id="messageLabel"><textarea name="message" rows="4" required></textarea></label>
+        <button type="submit" class="submit" id="sendBtn"></button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    © <span id="year"></span> Sophia & IT
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
