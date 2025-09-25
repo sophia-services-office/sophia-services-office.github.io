@@ -3,19 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>YANG, SHENG PE — Individual Entrepreneur</title>
+<title> SONU </title>
 <style>
-  body{font-family:Arial,system-ui,sans-serif;margin:0;background:#f9fbfd;color:#222}
-  header{background:#0b74de;color:#fff;padding:16px;text-align:center}
-  header h1{margin:0;font-size:22px}
-  nav{margin-top:10px}
-  nav button{margin:0 4px;padding:6px 10px;border:0;border-radius:6px;cursor:pointer}
-  .container{max-width:900px;margin:20px auto;padding:0 16px}
-  .card{background:#fff;padding:16px;margin-bottom:16px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,.08)}
-  label{display:block;margin-top:8px}
-  input,textarea{width:100%;padding:8px;margin-top:4px;border:1px solid #ccc;border-radius:6px}
-  button.submit{background:#0b74de;color:#fff;margin-top:10px}
-  footer{text-align:center;font-size:13px;color:#666;margin:20px 0}
+  body{margin:0;font-family:"Segoe UI",Roboto,Arial,sans-serif;background:#f5f7fb;color:#333;}
+  header{background:linear-gradient(135deg,#0b74de,#409eff);color:#fff;padding:30px 15px;text-align:center;box-shadow:0 4px 10px rgba(0,0,0,.1);}
+  header h1{margin:0;font-size:28px;font-weight:600;}
+  nav{margin-top:15px;}
+  nav button{margin:0 6px;padding:8px 14px;border:0;border-radius:20px;background:#fff;color:#0b74de;font-weight:600;cursor:pointer;transition:all .2s;}
+  nav button:hover{background:#409eff;color:#fff;}
+  .container{max-width:1100px;margin:30px auto;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;}
+  .card{background:#fff;padding:20px;border-radius:16px;box-shadow:0 6px 18px rgba(0,0,0,.08);transition:.3s;}
+  .card:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(0,0,0,.12);}
+  h3{margin-top:0;color:#0b74de;}
+  label{display:block;margin-top:10px;font-weight:500;}
+  input,textarea{width:100%;padding:10px;margin-top:6px;border:1px solid #ccd;border-radius:10px;font-size:15px;}
+  button.submit{background:linear-gradient(135deg,#0b74de,#409eff);color:#fff;padding:12px 18px;margin-top:14px;border:0;border-radius:10px;font-size:15px;cursor:pointer;transition:.2s;}
+  button.submit:hover{opacity:.9;}
+  footer{text-align:center;font-size:14px;color:#666;margin:30px 0;}
   [dir="rtl"]{text-align:right}
 </style>
 </head>
@@ -23,8 +27,8 @@
 <header>
   <h1 id="title"></h1>
   <nav>
-    <button onclick="setLang('zh')">中文</button>
-    <button onclick="setLang('en')">English</button>
+    <button onclick="setLang('zh')">English</button>
+    <button onclick="setLang('en')">中文</button>
     <button onclick="setLang('hy')">Հայերեն</button>
     <button onclick="setLang('ru')">Русский</button>
     <button onclick="setLang('ar')">العربية</button>
@@ -47,7 +51,7 @@
 
   <div class="card">
     <h3 id="contactTitle"></h3>
-    <form action="https://formspree.io/f/mwprpqke" method="POST">
+    <form action="https://formspree.io/f/your-id" method="POST">
       <label id="nameLabel"><input type="text" name="name" required></label>
       <label id="contactLabel"><input type="text" name="contact" required></label>
       <label id="messageLabel"><textarea name="message" rows="4" required></textarea></label>
@@ -62,106 +66,35 @@
 
 <script>
 const data = {
-  zh:{
-    title:"YANG, SHENG PE （个体户）",
-    infoTitle:"公司信息",
-    addressLabel:"地址：",
-    address:"亚美尼亚 埃里温市 Movses Khorenatsi 街 26a号210室",
-    phoneLabel:"电话：",
-    phone:"+374 77 118746",
-    emailLabel:"邮箱：",
-    email:"sophia.services.office@gmail.com",
-    dateLabel:"注册日期：",
-    date:"08.08.2025",
-    servicesTitle:"服务",
-    services:["网站开发","翻译与咨询","设计"],
-    contactTitle:"联系我们",
-    nameLabel:"姓名：",
-    contactLabel:"邮箱或电话：",
-    messageLabel:"留言：",
-    sendBtn:"发送"
-  },
-  en:{
-    title:"YANG, SHENG PE (Individual Entrepreneur)",
-    infoTitle:"Business Info",
-    addressLabel:"Address:",
-    address:"RA, Yerevan, Movses Khorenatsi st., bld 26a, office 210",
-    phoneLabel:"Phone:",
-    phone:"+374 77 118746",
-    emailLabel:"Email:",
-    email:"sophia.services.office@gmail.com",
-    dateLabel:"Date of registration:",
-    date:"08.08.2025",
-    servicesTitle:"Services",
-    services:["Website Development","Translation & Consulting","Design"],
-    contactTitle:"Contact Us",
-    nameLabel:"Name:",
-    contactLabel:"Email or Phone:",
-    messageLabel:"Message:",
-    sendBtn:"Send"
-  },
-  hy:{
-    title:"ՅԱՆԳ ՇԵՆԳ ԱՁ",
-    infoTitle:"Տեղեկություններ",
-    addressLabel:"Հասցե՝",
-    address:"ՀՀ, Երևան, Մովսես Խորենացի փ․ 26ա, գրասենյակ 210",
-    phoneLabel:"Հեռախոս՝",
-    phone:"+374 77 118746",
-    emailLabel:"Էլ․ փոստ՝",
-    email:"sophia.services.office@gmail.com",
-    dateLabel:"Գրանցման ամսաթիվ՝",
-    date:"08.08.2025",
-    servicesTitle:"Ծառայություններ",
-    services:["Վեբկայքերի ստեղծում","Թարգմանություն և խորհրդատվություն","Դիզայն"],
-    contactTitle:"Կապ մեզ հետ",
-    nameLabel:"Անուն՝",
-    contactLabel:"Էլ․ փոստ կամ հեռախոս՝",
-    messageLabel:"Նշում՝",
-    sendBtn:"Ուղարկել"
-  },
-  ru:{
-    title:"ИП ЯН ШЭН",
-    infoTitle:"Информация о компании",
-    addressLabel:"Адрес:",
-    address:"РА, Ереван, ул. Мовсеса Хоренаци, д.26а, оф.210",
-    phoneLabel:"Телефон:",
-    phone:"+374 77 118746",
-    emailLabel:"Эл. почта:",
-    email:"sophia.services.office@gmail.com",
-    dateLabel:"Дата регистрации:",
-    date:"08.08.2025",
-    servicesTitle:"Услуги",
-    services:["Разработка сайтов","Переводы и консалтинг","Дизайн"],
-    contactTitle:"Связаться с нами",
-    nameLabel:"Имя:",
-    contactLabel:"Email или телефон:",
-    messageLabel:"Сообщение:",
-    sendBtn:"Отправить"
-  },
-  ar:{
-    title:"يانغ شينغ - مؤسسة فردية",
-    infoTitle:"معلومات العمل",
-    addressLabel:"العنوان:",
-    address:"يريفان، شارع موفسيس خوريناتسي 26a، مكتب 210",
-    phoneLabel:"الهاتف:",
-    phone:"+374 77 118746",
-    emailLabel:"البريد الإلكتروني:",
-    email:"sophia.services.office@gmail.com",
-    dateLabel:"تاريخ التسجيل:",
-    date:"08.08.2025",
-    servicesTitle:"الخدمات",
-    services:["تطوير المواقع","الترجمة والاستشارات","التصميم"],
-    contactTitle:"اتصل بنا",
-    nameLabel:"الاسم:",
-    contactLabel:"البريد الإلكتروني أو الهاتف:",
-    messageLabel:"الرسالة:",
-    sendBtn:"إرسال"
-  }
+  zh:{title:"SONU",infoTitle:"公司信息",addressLabel:"地址：",
+    address:"亚美尼亚 埃里温市 Movses Khorenatsi 街 26a号210室",phoneLabel:"电话：",phone:"+374 77 118746",
+    emailLabel:"邮箱：",email:"sophia.services.office@gmail.com",dateLabel:"注册日期：",date:"08.08.2025",
+    servicesTitle:"服务",services:["网站开发","翻译与咨询","设计"],contactTitle:"联系我们",
+    nameLabel:"姓名：",contactLabel:"邮箱或电话：",messageLabel:"留言：",sendBtn:"发送"},
+  en:{title:"YANG, SHENG PE (Individual Entrepreneur)",infoTitle:"Business Info",addressLabel:"Address:",
+    address:"RA, Yerevan, Movses Khorenatsi st., bld 26a, office 210",phoneLabel:"Phone:",phone:"+374 77 118746",
+    emailLabel:"Email:",email:"sophia.services.office@gmail.com",dateLabel:"Date of registration:",date:"08.08.2025",
+    servicesTitle:"Services",services:["Website Development","Translation & Consulting","Design"],contactTitle:"Contact Us",
+    nameLabel:"Name:",contactLabel:"Email or Phone:",messageLabel:"Message:",sendBtn:"Send"},
+  hy:{title:"ՅԱՆԳ ՇԵՆԳ ԱՁ",infoTitle:"Տեղեկություններ",addressLabel:"Հասցե՝",
+    address:"ՀՀ, Երևան, Մովսես Խորենացի փ․ 26ա, գրասենյակ 210",phoneLabel:"Հեռախոս՝",phone:"+374 77 118746",
+    emailLabel:"Էլ․ փոստ՝",email:"sophia.services.office@gmail.com",dateLabel:"Գրանցման ամսաթիվ՝",date:"08.08.2025",
+    servicesTitle:"Ծառայություններ",services:["Վեբկայքերի ստեղծում","Թարգմանություն և խորհրդատվություն","Դիզայն"],contactTitle:"Կապ մեզ հետ",
+    nameLabel:"Անուն՝",contactLabel:"Էլ․ փոստ կամ հեռախոս՝",messageLabel:"Նշում՝",sendBtn:"Ուղարկել"},
+  ru:{title:"ИП ЯН ШЭН",infoTitle:"Информация о компании",addressLabel:"Адрес:",
+    address:"РА, Ереван, ул. Мовсеса Хоренаци, д.26а, оф.210",phoneLabel:"Телефон:",phone:"+374 77 118746",
+    emailLabel:"Эл. почта:",email:"sophia.services.office@gmail.com",dateLabel:"Дата регистрации:",date:"08.08.2025",
+    servicesTitle:"Услуги",services:["Разработка сайтов","Переводы и консалтинг","Дизайн"],contactTitle:"Связаться с нами",
+    nameLabel:"Имя:",contactLabel:"Email или телефон:",messageLabel:"Сообщение:",sendBtn:"Отправить"},
+  ar:{title:"يانغ شينغ - مؤسسة فردية",infoTitle:"معلومات العمل",addressLabel:"العنوان:",
+    address:"يريفان، شارع موفسيس خوريناتسي 26a، مكتب 210",phoneLabel:"الهاتف:",phone:"+374 77 118746",
+    emailLabel:"البريد الإلكتروني:",email:"sophia.services.office@gmail.com",dateLabel:"تاريخ التسجيل:",date:"08.08.2025",
+    servicesTitle:"الخدمات",services:["تطوير المواقع","الترجمة والاستشارات","التصميم"],contactTitle:"اتصل بنا",
+    nameLabel:"الاسم:",contactLabel:"البريد الإلكتروني أو الهاتف:",messageLabel:"الرسالة:",sendBtn:"إرسال"}
 };
-
 function setLang(lang){
   const t=data[lang];
-  document.body.dir = (lang==="ar")?"rtl":"ltr";
+  document.body.dir=(lang==="ar")?"rtl":"ltr";
   document.getElementById("title").textContent=t.title;
   document.getElementById("infoTitle").textContent=t.infoTitle;
   document.getElementById("addressLabel").textContent=t.addressLabel;
@@ -181,7 +114,7 @@ function setLang(lang){
   document.getElementById("messageLabel").childNodes[0].textContent=t.messageLabel+" ";
   document.getElementById("sendBtn").textContent=t.sendBtn;
 }
-setLang("zh"); // 默认中文
+setLang("zh");
 document.getElementById("year").textContent=new Date().getFullYear();
 </script>
 </body>
