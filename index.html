@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sophia & IT</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- SEO Meta -->
+  <meta name="description" content="Sophia & IT - Turning Ideas into Digital Reality. 专业软件开发、网站建设、数据分析与IT咨询服务。">
+  <meta name="keywords" content="Sophia IT, 软件开发, 网站建设, 数据分析, IT咨询, 技术支持">
 </head>
 <body>
   <!-- 导航栏 -->
@@ -39,32 +44,39 @@
     <!-- 服务 -->
     <div class="card">
       <h3 id="servicesTitle"></h3>
-      <ul id="services"></ul>
+      <div class="services-grid" id="services"></div>
     </div>
 
     <!-- 联系表单 -->
     <div class="card" id="contactSection">
       <h3 id="contactTitle"></h3>
       <form action="https://formspree.io/f/myznzpow" method="POST">
-  <label id="nameLabel">
-    Name:
-    <input type="text" name="name" required>
-  </label>
-  <label id="contactLabel">
-    Email:
-    <input type="email" name="email" required>
-  </label>
-  <label id="messageLabel">
-    Message:
-    <textarea name="message" rows="4" required></textarea>
-  </label>
-  <button type="submit" class="submit" id="sendBtn">Send</button>
-</form>
+        <label id="nameLabel">
+          Name:
+          <input type="text" name="name" required>
+        </label>
+        <label id="contactLabel">
+          Email:
+          <input type="email" name="email" required>
+        </label>
+        <label id="messageLabel">
+          Message:
+          <textarea name="message" rows="4" required></textarea>
+        </label>
+        <button type="submit" class="submit" id="sendBtn">Send</button>
+      </form>
     </div>
   </div>
 
+  <!-- 页脚 -->
   <footer>
-    © <span id="year"></span> Sophia & IT
+    <p>© <span id="year"></span> Sophia & IT | Powered by GitHub Pages & Formspree</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
   </footer>
 
   <script src="script.js"></script>
