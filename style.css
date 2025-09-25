@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   background: #f5f7fb;
   color: #333;
 }
@@ -38,7 +38,7 @@ body {
 /* 横幅 */
 .hero {
   background: linear-gradient(rgba(11,116,222,0.85),rgba(11,116,222,0.85)), 
-              url('https://picsum.photos/1600/500?blur=3');
+              url('https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1600&q=80');
   background-size: cover;
   background-position: center;
   color: #fff;
@@ -102,6 +102,25 @@ button.submit {
 }
 button.submit:hover { opacity: .9; }
 
+/* 服务卡片网格 */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 16px;
+}
+.services-grid div {
+  background: #f9fbff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,.05);
+  transition: .2s;
+}
+.services-grid div:hover {
+  background: #eef6ff;
+  transform: translateY(-2px);
+}
+
+/* 页脚 */
 footer {
   text-align: center;
   font-size: 14px;
