@@ -46,11 +46,20 @@
     <div class="card" id="contactSection">
       <h3 id="contactTitle"></h3>
       <form action="https://formspree.io/f/myznzpow" method="POST">
-        <label id="nameLabel"><input type="text" name="name" required></label>
-        <label id="contactLabel"><input type="text" name="contact" required></label>
-        <label id="messageLabel"><textarea name="message" rows="4" required></textarea></label>
-        <button type="submit" class="submit" id="sendBtn"></button>
-      </form>
+  <label id="nameLabel">
+    Name:
+    <input type="text" name="name" required>
+  </label>
+  <label id="contactLabel">
+    Email:
+    <input type="email" name="email" required>
+  </label>
+  <label id="messageLabel">
+    Message:
+    <textarea name="message" rows="4" required></textarea>
+  </label>
+  <button type="submit" class="submit" id="sendBtn">Send</button>
+</form>
     </div>
   </div>
 
