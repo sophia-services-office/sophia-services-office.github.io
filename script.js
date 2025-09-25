@@ -1,5 +1,6 @@
 const data = {
-  en:{heroTitle:"Sophia & IT",heroSubtitle:"Turning Ideas into Digital Reality.",heroButton:"Contact Us",
+  en:{
+    heroTitle:"Sophia & IT",heroSubtitle:"Turning Ideas into Digital Reality.",heroButton:"Contact Us",
     infoTitle:"Business Info",addressLabel:"Address:",
     address:"RA, Yerevan, Movses Khorenatsi st., bld 26a, 210 office",
     emailLabel:"Email:",email:"sophia.services.office@gmail.com",
@@ -12,8 +13,9 @@ const data = {
       "IT Consulting & Support: Solutions, Cloud Services, Training",
       "Other IT Services: API Development, Automation, UI/UX Design"
     ],
-    contactTitle:"Contact Us",nameLabel:"Name:",contactLabel:"Email or Phone:",messageLabel:"Message:",sendBtn:"Send"},
-  zh:{heroTitle:"Sophia & IT",heroSubtitle:"将创意转化为数字现实",heroButton:"联系我们",
+    contactTitle:"Contact Us",nameLabel:"Name:",contactLabel:"Email:",messageLabel:"Message:",sendBtn:"Send"},
+  zh:{
+    heroTitle:"Sophia & IT",heroSubtitle:"将创意转化为数字现实",heroButton:"联系我们",
     infoTitle:"公司信息",addressLabel:"地址：",
     address:"亚美尼亚 埃里温市 Movses Khorenatsi 街 26a号210室",
     emailLabel:"邮箱：",email:"sophia.services.office@gmail.com",
@@ -26,8 +28,9 @@ const data = {
       "IT 咨询与技术支持：解决方案、云服务、培训与远程支持",
       "其他信息技术服务：API 对接、自动化脚本、UI/UX 设计优化"
     ],
-    contactTitle:"联系我们",nameLabel:"姓名：",contactLabel:"邮箱或电话：",messageLabel:"留言：",sendBtn:"发送"},
-  ru:{heroTitle:"Sophia & IT",heroSubtitle:"Воплощаем идеи в цифровую реальность",heroButton:"Связаться с нами",
+    contactTitle:"联系我们",nameLabel:"姓名：",contactLabel:"邮箱：",messageLabel:"留言：",sendBtn:"发送"},
+  ru:{
+    heroTitle:"Sophia & IT",heroSubtitle:"Воплощаем идеи в цифровую реальность",heroButton:"Связаться с нами",
     infoTitle:"Информация о компании",addressLabel:"Адрес:",
     address:"РА, Ереван, ул. Мовсеса Хоренаци, д.26а, оф.210",
     emailLabel:"Эл. почта:",email:"sophia.services.office@gmail.com",
@@ -40,8 +43,9 @@ const data = {
       "ИТ-консалтинг и поддержка: решения, облачные сервисы, обучение",
       "Прочие ИТ-услуги: API, автоматизация, UI/UX дизайн"
     ],
-    contactTitle:"Связаться с нами",nameLabel:"Имя:",contactLabel:"Email или телефон:",messageLabel:"Сообщение:",sendBtn:"Отправить"},
-  hy:{heroTitle:"Sophia & IT",heroSubtitle:"Գաղափարները վերածում ենք թվային իրականության",heroButton:"Կապ մեզ հետ",
+    contactTitle:"Связаться с нами",nameLabel:"Имя:",contactLabel:"Email:",messageLabel:"Сообщение:",sendBtn:"Отправить"},
+  hy:{
+    heroTitle:"Sophia & IT",heroSubtitle:"Գաղափարները վերածում ենք թվային իրականության",heroButton:"Կապ մեզ հետ",
     infoTitle:"Տեղեկություններ",addressLabel:"Հասցե՝",
     address:"ՀՀ, Երևան, Մովսես Խորենացի փ․ 26ա, գրասենյակ 210",
     emailLabel:"Էլ․ փոստ՝",email:"sophia.services.office@gmail.com",
@@ -54,8 +58,9 @@ const data = {
       "ՏՏ խորհրդատվություն և աջակցություն՝ լուծումներ, ամպային ծառայություններ, ուսուցում",
       "Այլ ՏՏ ծառայություններ՝ API, ավտոմատացում, UI/UX դիզայն"
     ],
-    contactTitle:"Կապ մեզ հետ",nameLabel:"Անուն՝",contactLabel:"Էլ․ փոստ կամ հեռախոս՝",messageLabel:"Նշում՝",sendBtn:"Ուղարկել"},
-  ar:{heroTitle:"Sophia & IT",heroSubtitle:"تحويل الأفكار إلى واقع رقمي",heroButton:"اتصل بنا",
+    contactTitle:"Կապ մեզ հետ",nameLabel:"Անուն՝",contactLabel:"Էլ․ փոստ՝",messageLabel:"Նշում՝",sendBtn:"Ուղարկել"},
+  ar:{
+    heroTitle:"Sophia & IT",heroSubtitle:"تحويل الأفكار إلى واقع رقمي",heroButton:"اتصل بنا",
     infoTitle:"معلومات العمل",addressLabel:"العنوان:",
     address:"يريفان، شارع موفسيس خوريناتسي 26a، مكتب 210",
     emailLabel:"البريد الإلكتروني:",email:"sophia.services.office@gmail.com",
@@ -68,7 +73,7 @@ const data = {
       "الاستشارات والدعم: الحلول، الخدمات السحابية، التدريب",
       "خدمات تقنية أخرى: تطوير API، الأتمتة، تصميم UI/UX"
     ],
-    contactTitle:"اتصل بنا",nameLabel:"الاسم:",contactLabel:"البريد الإلكتروني أو الهاتف:",messageLabel:"الرسالة:",sendBtn:"إرسال"}
+    contactTitle:"اتصل بنا",nameLabel:"الاسم:",contactLabel:"البريد الإلكتروني:",messageLabel:"الرسالة:",sendBtn:"إرسال"}
 };
 
 function setLang(lang){
@@ -86,12 +91,20 @@ function setLang(lang){
   document.getElementById("dateLabel").textContent=t.dateLabel;
   document.getElementById("date").textContent=t.date;
   document.getElementById("servicesTitle").textContent=t.servicesTitle;
-  document.getElementById("services").innerHTML=t.services.map(s=>"<li>"+s+"</li>").join("");
+
+  // 🃏 服务 - 卡片模式输出
+  const icons = ["🖥️","🌐","📊","💡","⚙️"];
+  document.getElementById("services").innerHTML = t.services.map((s,i)=>
+    `<div><span class="icon">${icons[i] || "🔹"}</span> ${s}</div>`
+  ).join("");
+
   document.getElementById("contactTitle").textContent=t.contactTitle;
   document.getElementById("nameLabel").childNodes[0].textContent=t.nameLabel+" ";
   document.getElementById("contactLabel").childNodes[0].textContent=t.contactLabel+" ";
   document.getElementById("messageLabel").childNodes[0].textContent=t.messageLabel+" ";
   document.getElementById("sendBtn").textContent=t.sendBtn;
 }
+
+// 默认语言
 setLang("en");
 document.getElementById("year").textContent=new Date().getFullYear();
