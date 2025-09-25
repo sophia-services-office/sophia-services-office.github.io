@@ -1,0 +1,112 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: #f5f7fb;
+  color: #333;
+}
+
+/* 导航栏 */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0b74de;
+  padding: 15px 20px;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,.1);
+}
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+}
+.lang-buttons button {
+  margin-left: 6px;
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 18px;
+  background: #fff;
+  color: #0b74de;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .2s;
+}
+.lang-buttons button:hover {
+  background: #409eff;
+  color: #fff;
+}
+
+/* 横幅 */
+.hero {
+  background: linear-gradient(rgba(11,116,222,0.85),rgba(11,116,222,0.85)), 
+              url('https://picsum.photos/1600/500?blur=3');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+}
+.hero h1 { font-size: 40px; margin: 0; font-weight: 700; }
+.hero p { font-size: 20px; margin: 15px 0 25px; }
+.hero a {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 30px;
+  background: #fff;
+  color: #0b74de;
+  font-weight: 600;
+  text-decoration: none;
+  transition: .2s;
+}
+.hero a:hover { background: #409eff; color: #fff; }
+
+/* 主体 */
+.container {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+  gap: 20px;
+}
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  transition: .3s;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(0,0,0,.12);
+}
+h3 { margin-top: 0; color: #0b74de; }
+label { display: block; margin-top: 10px; font-weight: 500; }
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #ccd;
+  border-radius: 10px;
+  font-size: 15px;
+}
+button.submit {
+  background: linear-gradient(135deg,#0b74de,#409eff);
+  color: #fff;
+  padding: 12px 18px;
+  margin-top: 14px;
+  border: 0;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: .2s;
+}
+button.submit:hover { opacity: .9; }
+
+footer {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin: 30px 0;
+}
+
+[dir="rtl"] { text-align: right; }
