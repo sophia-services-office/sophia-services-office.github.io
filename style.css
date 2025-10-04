@@ -46,6 +46,14 @@ body {
   text-align: center;
 }
 .hero h1 { font-size: 40px; margin: 0; font-weight: 700; }
+.hero-subtext {
+  font-size: 18px;
+  color: #eaf2ff;
+  letter-spacing: 0.5px;
+  margin-top: -10px;
+  margin-bottom: 25px;
+  opacity: 0.95;
+}
 .hero p { font-size: 20px; margin: 15px 0 25px; }
 .hero a {
   display: inline-block;
