@@ -1,74 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sophia & IT Services</title>
+    <title>Sophia & IT</title>
 
-    <!-- 修复后的 CSS 路径 -->
+    <!-- 样式 -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <!-- ====================== NAV 导航栏 ====================== -->
+    <header class="nav">
+        <div class="container nav-content">
 
-    <!-- NAVBAR -->
-    <div class="navbar">
-        <div class="logo-area">
-            <img src="assets/logo3.png" class="logo-img">
-            <span class="logo-text">Sophia & IT</span>
+            <!-- LOGO -->
+            <div class="logo">
+                <img src="img/logo.png" alt="Sophia & IT Logo">
+            </div>
+
+            <!-- LANGUAGE BUTTONS -->
+            <div class="lang-switch">
+                <button class="lang-btn" data-lang="zh">中文</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="hy">Հայ</button>
+                <button class="lang-btn" data-lang="ru">RU</button>
+                <button class="lang-btn" data-lang="ar">AR</button>
+            </div>
         </div>
+    </header>
 
-        <div class="lang-buttons">
-            <button onclick="setLanguage('en')">EN</button>
-            <button onclick="setLanguage('zh')">中文</button>
-            <button onclick="setLanguage('jp')">日本語</button>
-            <button onclick="setLanguage('fr')">FR</button>
-        </div>
-    </div>
 
-    <!-- HERO -->
+    <!-- ====================== HERO 头图区 ====================== -->
     <section class="hero">
-        <div class="hero-content">
-            <img src="assets/logo3.png" class="hero-logo">
-            <h1 id="hero-title">Turning Ideas into Digital Reality</h1>
-            <p id="hero-subtitle">Professional IT solutions for global businesses</p>
-            <a href="#services" class="hero-btn" id="hero-btn">Our Services</a>
+        <div class="container">
+            <h1 id="heroTitle">Sophia & IT</h1>
+            <p id="heroSubtitle">Turning Ideas into Digital Reality</p>
+            <button id="heroButton" class="cta-btn">Contact Us</button>
         </div>
     </section>
 
-    <!-- MAIN -->
-    <div class="container">
 
-        <div class="card">
-            <h3 id="service-title">Our Services</h3>
-            <div class="services-grid">
-                <div class="service-box" id="srv1">Web Development</div>
-                <div class="service-box" id="srv2">IT Consulting</div>
-                <div class="service-box" id="srv3">Cloud Deployment</div>
-                <div class="service-box" id="srv4">Business Automation</div>
-            </div>
+    <!-- ====================== 公司信息 ====================== -->
+    <section class="info">
+        <div class="container">
+            <h2 id="infoTitle">公司信息</h2>
+
+            <!-- 公司介绍段落由 script.js 动态注入 -->
+            <!-- <p id="companyDesc"></p> -->
+
+            <p><span id="addressLabel">地址：</span>
+                <span id="address">亚美尼亚 埃里温市...</span>
+            </p>
+
+            <p><span id="emailLabel">邮箱：</span>
+                <a id="emailLink" href="mailto:sophia.services.office@gmail.com">sophia.services.office@gmail.com</a>
+            </p>
+
+            <p><span id="dateLabel">日期：</span>
+                <span id="date"></span>
+            </p>
         </div>
+    </section>
 
-        <div class="card">
-            <h3 id="contact-title">Contact Us</h3>
+
+    <!-- ====================== 服务项目 ====================== -->
+    <section class="services">
+        <div class="container">
+            <h2 id="servicesTitle">我们的服务</h2>
+
+            <!-- 服务项目由 script.js 自动填充 -->
+            <div id="services" class="service-list"></div>
+        </div>
+    </section>
+
+
+    <!-- ====================== 联系表单 ====================== -->
+    <section class="contact">
+        <div class="container">
+            <h2 id="contactTitle">联系我们</h2>
+
             <form>
-                <label id="label-name">Your Name</label>
-                <input type="text">
+                <label id="nameLabel">
+                    <span class="label-text">姓名：</span>
+                    <input type="text" placeholder="">
+                </label>
 
-                <label id="label-message">Message</label>
-                <textarea></textarea>
+                <label id="contactLabel">
+                    <span class="label-text">邮箱：</span>
+                    <input type="email" placeholder="">
+                </label>
 
-                <button class="submit" id="submit-btn">Send</button>
+                <label id="messageLabel">
+                    <span class="label-text">留言：</span>
+                    <textarea placeholder=""></textarea>
+                </label>
+
+                <button type="submit" id="sendBtn">发送</button>
             </form>
         </div>
+    </section>
 
-    </div>
 
-    <footer id="footer-text">© 2025 Sophia & IT Services</footer>
+    <!-- ====================== 页脚 ====================== -->
+    <footer class="footer">
+        <div class="container">
+            <p>© <span id="year"></span> Sophia & IT. All Rights Reserved.</p>
+        </div>
+    </footer>
 
+    <!-- JS -->
     <script src="script.js"></script>
 </body>
 </html>
