@@ -60,14 +60,100 @@
     </section>
 
     <!-- Services -->
-    <section id="services" class="section services">
-      <div class="container">
-        <h2 id="servicesTitle">我们的服务</h2>
-        <div id="services" class="service-grid">
-          <!-- script.js 会填充服务列表 -->
+    <section id="services">
+    <h2 data-translate="services_title">服务项目</h2>
+
+    <div class="services-container">
+
+        <!-- 软件开发 -->
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-code"></i></div>
+            <div class="service-title" data-translate="service_1">软件开发</div>
+            <div class="service-sub" data-translate="service_1_sub">定制化软件工程</div>
+            <p class="service-desc" data-translate="service_1_desc">
+                提供企业级系统架构设计、端到端开发与持续技术支持。
+            </p>
+            <button class="service-btn" onclick="openModal('service1')"
+                data-translate="learn_more">了解更多</button>
         </div>
-      </div>
-    </section>
+
+        <!-- 企业网站建设 -->
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-globe"></i></div>
+            <div class="service-title" data-translate="service_2">企业网站建设</div>
+            <div class="service-sub" data-translate="service_2_sub">Brand Corporate Web Design</div>
+            <p class="service-desc" data-translate="service_2_desc">
+                打造专业企业官网、SEO 优化、品牌视觉统一。
+            </p>
+            <button class="service-btn" onclick="openModal('service2')" data-translate="learn_more">
+                了解更多
+            </button>
+        </div>
+
+        <!-- 系统平台后端开发 -->
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-server"></i></div>
+            <div class="service-title" data-translate="service_3">系统平台后端开发</div>
+            <div class="service-sub" data-translate="service_3_sub">Backend & Platform Engineering</div>
+            <p class="service-desc" data-translate="service_3_desc">
+                高并发后端服务、API 设计、数据库与云架构管理。
+            </p>
+            <button class="service-btn" onclick="openModal('service3')" data-translate="learn_more">
+                了解更多
+            </button>
+        </div>
+
+        <!-- IT 技术支持 -->
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-tools"></i></div>
+            <div class="service-title" data-translate="service_4">IT 技术支持</div>
+            <div class="service-sub" data-translate="service_4_sub">Technical Support & Maintenance</div>
+            <p class="service-desc" data-translate="service_4_desc">
+                系统维护、技术故障排查、服务器与网络支持。
+            </p>
+            <button class="service-btn" onclick="openModal('service4')" data-translate="learn_more">
+                了解更多
+            </button>
+        </div>
+
+        <!-- 数据分析与可视化 -->
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="service-title" data-translate="service_5">数据分析与可视化</div>
+            <div class="service-sub" data-translate="service_5_sub">Data Analytics & Visualization</div>
+            <p class="service-desc" data-translate="service_5_desc">
+                数据建模、报表可视化、商业智能分析。
+            </p>
+            <button class="service-btn" onclick="openModal('service5')" data-translate="learn_more">
+                了解更多
+            </button>
+        </div>
+
+        <!-- 云部署与维护 -->
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-cloud"></i></div>
+            <div class="service-title" data-translate="service_6">云部署与维护</div>
+            <div class="service-sub" data-translate="service_6_sub">Cloud Deployment & DevOps</div>
+            <p class="service-desc" data-translate="service_6_desc">
+                AWS / Azure / Google Cloud 部署、监控、自动化与 CI/CD。
+            </p>
+            <button class="service-btn" onclick="openModal('service6')" data-translate="learn_more">
+                了解更多
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<!-- ====== 弹窗 ====== -->
+<div id="modal" class="modal" onclick="closeModal(event)">
+    <div class="modal-content" id="modalContent">
+        <span class="close" onclick="closeModal(event)">&times;</span>
+        <h2 id="modalTitle"></h2>
+        <p id="modalBody"></p>
+    </div>
+</div>
+
 
     <!-- Contact Form -->
     <section id="contact" class="section contact">
