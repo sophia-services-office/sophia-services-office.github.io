@@ -1,65 +1,107 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sophia & IT</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sophia & IT</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header class="nav">
+    <div class="nav-inner container">
+      <div class="nav-left">
+        <img src="logo3.png" alt="Sophia & IT Logo" class="logo-img" />
+        <span class="brand">Sophia & IT</span>
+      </div>
 
-    <!-- 导航栏 -->
-    <nav>
-        <div class="logo">
-            <img src="logo3.png" alt="Logo">
-            <span>Sophia & IT</span>
+      <nav class="nav-center">
+        <a href="#home" data-key="nav_home" class="nav-link">首页</a>
+        <a href="#services" data-key="nav_services" class="nav-link">服务项目</a>
+        <a href="#company" data-key="nav_company" class="nav-link">公司信息</a>
+        <a href="#contact" data-key="nav_contact" class="nav-link">联系我们</a>
+      </nav>
+
+      <div class="nav-right">
+        <div class="lang-buttons" role="tablist" aria-label="Language selector">
+          <button class="lang-btn" data-lang="zh">中文</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="hy">Հայ</button>
+          <button class="lang-btn" data-lang="ru">RU</button>
+          <button class="lang-btn" data-lang="ar">AR</button>
         </div>
-        <ul class="nav-links">
-            <li><a href="#home">首页</a></li>
-            <li><a href="#services">服务项目</a></li>
-            <li><a href="#company">公司信息</a></li>
-            <li><a href="#contact">联系我们</a></li>
-        </ul>
-    </nav>
+      </div>
+    </div>
+  </header>
 
-    <!-- 主页 Section -->
+  <main>
+    <!-- HERO -->
     <section id="home" class="hero">
-        <h1>欢迎来到 Sophia & IT</h1>
-        <p>为您的业务提供专业 IT 解决方案</p>
+      <div class="container hero-inner">
+        <h1 id="heroTitle">Sophia & IT</h1>
+        <p id="heroSubtitle" class="hero-sub">Technology Drives the Future · Turning Ideas into Digital Reality</p>
+        <button id="heroButton" class="cta">Contact Us</button>
+      </div>
     </section>
 
-    <!-- 服务项目 Section -->
-    <section id="services">
-        <h2>服务项目</h2>
-        <p>这里将放置公司的服务内容介绍...</p>
+    <!-- Company Info -->
+    <section id="company" class="section info">
+      <div class="container">
+        <h2 id="infoTitle">公司信息</h2>
+        <div id="companyDesc" class="company-desc">
+          <!-- script.js 会把多语言公司介绍填进这里 -->
+        </div>
+
+        <div class="meta">
+          <p><strong id="addressLabel">地址：</strong> <span id="address">亚美尼亚 埃里温市 Movses Khorenatsi 街 26a号210室</span></p>
+          <p><strong id="emailLabel">邮箱：</strong> <a id="emailLink" href="mailto:sophia.services.office@gmail.com">sophia.services.office@gmail.com</a></p>
+          <p><strong id="dateLabel">日期：</strong> <span id="date">08.08.2025</span></p>
+        </div>
+      </div>
     </section>
 
-    <!-- 公司信息 Section（已加入正式公司介绍） -->
-    <section id="company">
-        <h2>公司信息</h2>
-
-        <p>
-            Sophia & IT 是一家专注于 AI 技术研发与企业数字化解决方案的创新型科技公司。
-            我们致力于通过智能化工具、自动化系统与定制化软件开发，帮助企业提升效率、降低成本、增强竞争力。
-        </p>
-
-        <p>
-            我们的核心业务包括：人工智能应用开发、数据分析平台构建、企业官网制作、
-            自动化工作系统部署、IT 顾问服务与技术培训。
-        </p>
-
-        <p>
-            作为一支专业团队，我们坚持“实用 · 高效 · 创新”的原则，为企业提供可落地、
-            可扩展、可长期维护的技术方案，让科技真正服务商业。
-        </p>
+    <!-- Services -->
+    <section id="services" class="section services">
+      <div class="container">
+        <h2 id="servicesTitle">我们的服务</h2>
+        <div id="services" class="service-grid">
+          <!-- script.js 会填充服务列表 -->
+        </div>
+      </div>
     </section>
 
-    <!-- 联系方式 Section -->
-    <section id="contact">
-        <h2>联系我们</h2>
-        <p>Email: example@example.com</p>
-    </section>
+    <!-- Contact Form -->
+    <section id="contact" class="section contact">
+      <div class="container">
+        <h2 id="contactTitle">联系我们</h2>
 
-    <script src="script.js"></script>
+        <form id="contactForm" action="https://formspree.io/f/myznzpow" method="POST" class="form">
+          <label id="nameLabel" class="form-label">
+            <span class="label-text">姓名：</span>
+            <input name="name" type="text" required placeholder="" />
+          </label>
+
+          <label id="contactLabel" class="form-label">
+            <span class="label-text">邮箱：</span>
+            <input name="email" type="email" required placeholder="" />
+          </label>
+
+          <label id="messageLabel" class="form-label">
+            <span class="label-text">问题：</span>
+            <textarea name="message" rows="6" required placeholder=""></textarea>
+          </label>
+
+          <button id="sendBtn" type="submit" class="submit-btn">发送</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p id="footerText">© <span id="year"></span> Sophia & IT | Powered by GitHub Pages & Formspree</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
