@@ -3,24 +3,102 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Sophia & IT</title>
 
-  <!-- Favicon（等你给我 logo，我会生成透明 PNG） -->
-  <link rel="icon" type="image/png" href="logo.png">
-
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Google Font -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
+  <!-- Favicon -->
+  <link rel="icon" href="assets/logo3.png" type="image/png">
+
   <!-- SEO -->
-  <meta name="description" content="Sophia & IT - Turning Ideas into Digital Reality. Software Development, Web Solutions, IT Support">
-  <meta name="keywords" content="Software Development, Web Design, IT Consulting, Data Analysis">
+  <meta name="description" content="Sophia & IT - Turning Ideas into Digital Reality. 软件开发、网站建设、数据分析与IT咨询服务。">
+  <meta name="keywords" content="Sophia IT, 软件开发, 网站建设, 数据分析, IT咨询, 技术支持">
 </head>
 
 <body>
 
-  <!-- ======= 导航栏 ======= -->
-  <header class="navbar">
-    <div class="nav-left">
-      <img src="logo.png" clas
+  <!-- NAVIGATION -->
+  <div class="navbar">
+    <div class="logo-area">
+      <img src="assets/logo3.png" class="logo-img" alt="Sophia & IT Logo">
+      <span class="logo-text">Sophia & IT</span>
+    </div>
+
+    <div class="lang-buttons">
+      <button onclick="setLang('zh')">中文</button>
+      <button onclick="setLang('en')">English</button>
+      <button onclick="setLang('hy')">Հայերեն</button>
+      <button onclick="setLang('ru')">Русский</button>
+      <button onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
+      <img src="assets/logo3.png" class="hero-logo" alt="Main Logo">
+
+      <h1 id="heroTitle">Sophia & IT</h1>
+      <p id="heroSubtitle">Turning Ideas into Digital Reality.</p>
+
+      <a href="#contactSection" id="heroButton" class="hero-btn">
+        Contact Us
+      </a>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+
+    <!-- INFO -->
+    <div class="card">
+      <h3 id="infoTitle"></h3>
+      <p><b id="addressLabel"></b> <span id="address"></span></p>
+      <p><b id="emailLabel"></b> <a id="emailLink"></a></p>
+      <p><b id="dateLabel"></b> <span id="date"></span></p>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="card">
+      <h3 id="servicesTitle"></h3>
+      <div class="services-grid" id="services"></div>
+    </div>
+
+    <!-- CONTACT FORM -->
+    <div class="card" id="contactSection">
+      <h3 id="contactTitle"></h3>
+
+      <form action="https://formspree.io/f/myznzpow" method="POST">
+        
+        <label id="nameLabel">
+          Name:
+          <input type="text" name="name" required>
+        </label>
+
+        <label id="contactLabel">
+          Email:
+          <input type="email" name="email" required>
+        </label>
+
+        <label id="messageLabel">
+          Message:
+          <textarea name="message" rows="4" required></textarea>
+        </label>
+
+        <button class="submit" id="sendBtn" type="submit">Send</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© <span id="year"></span> Sophia & IT | Powered by GitHub Pages & Formspree</p>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.
