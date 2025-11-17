@@ -319,3 +319,86 @@ Sophia & IT строит ориентированную на будущее си
   });
 
 })();
+const modal = document.getElementById("modal");
+const modalTitle = document.getElementById("modalTitle");
+const modalBody = document.getElementById("modalBody");
+
+const modalContentData = {
+    zh: {
+        service1: {
+            title: "软件开发",
+            body: "我们提供企业级软件系统开发，包括架构设计、前后端开发、数据库设计、API 设计、云端部署、性能优化及长期维护。"
+        },
+        service2: {
+            title: "企业网站建设",
+            body: "构建高质量企业官网，支持品牌设计、响应式布局、SEO 优化、内容管理后台等功能。"
+        },
+        service3: {
+            title: "系统平台后端开发",
+            body: "提供高并发后台架构设计、服务器端开发、数据库优化、微服务、API 网关等解决方案。"
+        },
+        service4: {
+            title: "IT 技术支持",
+            body: "企业 IT 环境托管、技术故障排查、服务器维护、信息安全管理与技术支持服务。"
+        },
+        service5: {
+            title: "数据分析与可视化",
+            body: "提供报表可视化、商业智能分析（BI）、数据清洗、数据仓库建设等数据解决方案。"
+        },
+        service6: {
+            title: "云部署与维护",
+            body: "基于 AWS / Azure / Google Cloud 的云架构部署、监控、自动化 CI/CD、容器化（Docker/K8s）。"
+        }
+    },
+
+    en: {
+        service1: { title: "Software Development", body: "Enterprise-level software engineering including architecture design, backend/frontend development, API integration and cloud deployment." },
+        service2: { title: "Corporate Website Development", body: "Professional corporate websites with brand-aligned UI/UX, SEO optimization, backend CMS and performance optimization." },
+        service3: { title: "Backend Platform Development", body: "High-performance backend architecture, API gateway, microservices, database engineering and systems integration." },
+        service4: { title: "IT Technical Support", body: "System maintenance, network support, troubleshooting, security monitoring and enterprise IT services." },
+        service5: { title: "Data Analytics & Visualization", body: "BI dashboards, data modeling, visualization, reporting automation and decision-support analytics." },
+        service6: { title: "Cloud Deployment & DevOps", body: "AWS / Azure / GCP deployment, monitoring, CI/CD automation, containerization and cloud optimization." }
+    },
+
+    ru: {
+        service1: { title: "Разработка ПО", body: "Корпоративная разработка ПО, архитектура, интеграции API и облачное развертывание." },
+        service2: { title: "Корпоративные веб-сайты", body: "Профессиональные сайты с SEO, адаптивным дизайном и системой управления контентом." },
+        service3: { title: "Бэкенд-разработка", body: "Высоконагруженные серверные системы, базы данных, API и микросервисы." },
+        service4: { title: "IT-поддержка", body: "Техническая поддержка, обслуживание серверов, мониторинг и безопасность." },
+        service5: { title: "Аналитика данных", body: "BI-панели, визуализация данных и аналитические решения." },
+        service6: { title: "Облачные сервисы", body: "AWS/Azure/GCP, CI/CD, контейнеризация и DevOps." }
+    },
+
+    ar: {
+        service1: { title: "تطوير البرمجيات", body: "تطوير أنظمة برمجية مؤسسية مع التصميم المعماري والتكامل السحابي." },
+        service2: { title: "تطوير مواقع الشركات", body: "مواقع احترافية للشركات مع تحسين SEO ولوحة تحكم للمحتوى." },
+        service3: { title: "تطوير الأنظمة الخلفية", body: "خوادم عالية الأداء، قواعد البيانات، API والميكروسيرفيس." },
+        service4: { title: "الدعم التقني", body: "صيانة الأنظمة والدعم الفني والشبكات والمراقبة." },
+        service5: { title: "تحليل البيانات", body: "تحليل الأعمال، النمذجة واللوحات التفاعلية." },
+        service6: { title: "الحوسبة السحابية", body: "أتمتة CI/CD، النشر السحابي، والحاويات." }
+    },
+
+    hy: {
+        service1: { title: "Ծրագրային ապահովման զարգացում", body: "Ձեռնարկությունների համար նախատեսված ծրագրային լուծումներ, ճարտարապետություն և ամպային տեղակայում։" },
+        service2: { title: "Ընկերության վեբ կայքերի ստեղծում", body: "Պրոֆեսիոնալ կորպորատիվ կայքեր, SEO և կառավարման վահանակ։" },
+        service3: { title: "Համակարգերի backend զարգացում", body: "Բարձր կատարողականությամբ backend, բազաներ և API համակարգեր։" },
+        service4: { title: "ՏՏ աջակցություն", body: "Տեխնիկական սպասարկում, սերվերի կարգավորում և անվտանգություն։" },
+        service5: { title: "Տվյալների վերլուծություն", body: "Տեսողական վահանակներ, վերլուծություններ և հաշվետվություններ։" },
+        service6: { title: "Ամպային ծառայություններ", body: "AWS / Azure / GCP, ավտոմատացում, կոնտեյներացում և DevOps։" }
+    }
+};
+
+/* 打开弹窗 */
+function openModal(id) {
+    const lang = currentLanguage; 
+    modalTitle.innerText = modalContentData[lang][id].title;
+    modalBody.innerText = modalContentData[lang][id].body;
+    modal.style.display = "flex";
+}
+
+/* 关闭 */
+function closeModal(event) {
+    if (event.target === modal || event.target.classList.contains("close")) {
+        modal.style.display = "none";
+    }
+}
