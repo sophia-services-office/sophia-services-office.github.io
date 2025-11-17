@@ -1,193 +1,98 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sophia & IT</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header class="nav">
-    <div class="nav-inner container">
-      <div class="nav-left">
-        <img src="logo3.png" alt="Sophia & IT Logo" class="logo-img" />
-        <span class="brand">Sophia & IT</span>
+<!-- Services -->
+<section id="services" class="section services">
+  <div class="container">
+    <h2 id="servicesTitle">服务项目</h2>
+
+    <!-- 注意这里是 service-grid，与 CSS 一致 -->
+    <div id="serviceList" class="service-grid">
+
+      <!-- 软件开发 -->
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-code"></i></div>
+        <div class="service-title" data-translate="service_1">软件开发</div>
+        <div class="service-sub" data-translate="service_1_sub">定制化软件工程</div>
+        <p class="service-desc" data-translate="service_1_desc">
+          提供企业级系统架构设计、端到端开发与持续技术支持。
+        </p>
+        <button class="service-btn" onclick="openModal('service1')" data-translate="learn_more">
+          了解更多
+        </button>
       </div>
 
-      <nav class="nav-center">
-        <a href="#home" data-key="nav_home" class="nav-link">首页</a>
-        <a href="#services" data-key="nav_services" class="nav-link">服务项目</a>
-        <a href="#company" data-key="nav_company" class="nav-link">公司信息</a>
-        <a href="#contact" data-key="nav_contact" class="nav-link">联系我们</a>
-      </nav>
-
-      <div class="nav-right">
-        <div class="lang-buttons" role="tablist" aria-label="Language selector">
-          <button class="lang-btn" data-lang="zh">中文</button>
-          <button class="lang-btn" data-lang="en">EN</button>
-          <button class="lang-btn" data-lang="hy">Հայ</button>
-          <button class="lang-btn" data-lang="ru">RU</button>
-          <button class="lang-btn" data-lang="ar">AR</button>
-        </div>
+      <!-- 企业网站建设 -->
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-globe"></i></div>
+        <div class="service-title" data-translate="service_2">企业网站建设</div>
+        <div class="service-sub" data-translate="service_2_sub">Brand Corporate Web Design</div>
+        <p class="service-desc" data-translate="service_2_desc">
+          打造专业企业官网、SEO 优化、品牌视觉统一。
+        </p>
+        <button class="service-btn" onclick="openModal('service2')" data-translate="learn_more">
+          了解更多
+        </button>
       </div>
-    </div>
-  </header>
 
-  <main>
-    <!-- HERO -->
-    <section id="home" class="hero">
-      <div class="container hero-inner">
-        <h1 id="heroTitle">Sophia & IT</h1>
-        <p id="heroSubtitle" class="hero-sub">Technology Drives the Future · Turning Ideas into Digital Reality</p>
-        <button id="heroButton" class="cta">Contact Us</button>
+      <!-- 系统平台后端开发 -->
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-server"></i></div>
+        <div class="service-title" data-translate="service_3">系统平台后端开发</div>
+        <div class="service-sub" data-translate="service_3_sub">Backend & Platform Engineering</div>
+        <p class="service-desc" data-translate="service_3_desc">
+          高并发后端服务、API 设计、数据库与云架构管理。
+        </p>
+        <button class="service-btn" onclick="openModal('service3')" data-translate="learn_more">
+          了解更多
+        </button>
       </div>
-    </section>
 
-    <!-- Company Info -->
-    <section id="company" class="section info">
-      <div class="container">
-        <h2 id="infoTitle">公司信息</h2>
-        <div id="companyDesc" class="company-desc">
-          <!-- script.js 会把多语言公司介绍填进这里 -->
-        </div>
-
-        <div class="meta">
-          <p><strong id="addressLabel">地址：</strong> <span id="address">亚美尼亚 埃里温市 Movses Khorenatsi 街 26a号210室</span></p>
-          <p><strong id="emailLabel">邮箱：</strong> <a id="emailLink" href="mailto:sophia.services.office@gmail.com">sophia.services.office@gmail.com</a></p>
-          <p><strong id="dateLabel">日期：</strong> <span id="date">08.08.2025</span></p>
-        </div>
+      <!-- IT 技术支持 -->
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-tools"></i></div>
+        <div class="service-title" data-translate="service_4">IT 技术支持</div>
+        <div class="service-sub" data-translate="service_4_sub">Technical Support & Maintenance</div>
+        <p class="service-desc" data-translate="service_4_desc">
+          系统维护、技术故障排查、服务器与网络支持。
+        </p>
+        <button class="service-btn" onclick="openModal('service4')" data-translate="learn_more">
+          了解更多
+        </button>
       </div>
-    </section>
 
-    <!-- Services -->
-    <section id="services">
-    <h2 data-translate="services_title">服务项目</h2>
+      <!-- 数据分析 -->
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+        <div class="service-title" data-translate="service_5">数据分析与可视化</div>
+        <div class="service-sub" data-translate="service_5_sub">Data Analytics & Visualization</div>
+        <p class="service-desc" data-translate="service_5_desc">
+          数据建模、报表可视化、商业智能分析。
+        </p>
+        <button class="service-btn" onclick="openModal('service5')" data-translate="learn_more">
+          了解更多
+        </button>
+      </div>
 
-    <div class="services-container">
-
-        <!-- 软件开发 -->
-        <div class="service-card">
-            <div class="service-icon"><i class="fas fa-code"></i></div>
-            <div class="service-title" data-translate="service_1">软件开发</div>
-            <div class="service-sub" data-translate="service_1_sub">定制化软件工程</div>
-            <p class="service-desc" data-translate="service_1_desc">
-                提供企业级系统架构设计、端到端开发与持续技术支持。
-            </p>
-            <button class="service-btn" onclick="openModal('service1')"
-                data-translate="learn_more">了解更多</button>
-        </div>
-
-        <!-- 企业网站建设 -->
-        <div class="service-card">
-            <div class="service-icon"><i class="fas fa-globe"></i></div>
-            <div class="service-title" data-translate="service_2">企业网站建设</div>
-            <div class="service-sub" data-translate="service_2_sub">Brand Corporate Web Design</div>
-            <p class="service-desc" data-translate="service_2_desc">
-                打造专业企业官网、SEO 优化、品牌视觉统一。
-            </p>
-            <button class="service-btn" onclick="openModal('service2')" data-translate="learn_more">
-                了解更多
-            </button>
-        </div>
-
-        <!-- 系统平台后端开发 -->
-        <div class="service-card">
-            <div class="service-icon"><i class="fas fa-server"></i></div>
-            <div class="service-title" data-translate="service_3">系统平台后端开发</div>
-            <div class="service-sub" data-translate="service_3_sub">Backend & Platform Engineering</div>
-            <p class="service-desc" data-translate="service_3_desc">
-                高并发后端服务、API 设计、数据库与云架构管理。
-            </p>
-            <button class="service-btn" onclick="openModal('service3')" data-translate="learn_more">
-                了解更多
-            </button>
-        </div>
-
-        <!-- IT 技术支持 -->
-        <div class="service-card">
-            <div class="service-icon"><i class="fas fa-tools"></i></div>
-            <div class="service-title" data-translate="service_4">IT 技术支持</div>
-            <div class="service-sub" data-translate="service_4_sub">Technical Support & Maintenance</div>
-            <p class="service-desc" data-translate="service_4_desc">
-                系统维护、技术故障排查、服务器与网络支持。
-            </p>
-            <button class="service-btn" onclick="openModal('service4')" data-translate="learn_more">
-                了解更多
-            </button>
-        </div>
-
-        <!-- 数据分析与可视化 -->
-        <div class="service-card">
-            <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-            <div class="service-title" data-translate="service_5">数据分析与可视化</div>
-            <div class="service-sub" data-translate="service_5_sub">Data Analytics & Visualization</div>
-            <p class="service-desc" data-translate="service_5_desc">
-                数据建模、报表可视化、商业智能分析。
-            </p>
-            <button class="service-btn" onclick="openModal('service5')" data-translate="learn_more">
-                了解更多
-            </button>
-        </div>
-
-        <!-- 云部署与维护 -->
-        <div class="service-card">
-            <div class="service-icon"><i class="fas fa-cloud"></i></div>
-            <div class="service-title" data-translate="service_6">云部署与维护</div>
-            <div class="service-sub" data-translate="service_6_sub">Cloud Deployment & DevOps</div>
-            <p class="service-desc" data-translate="service_6_desc">
-                AWS / Azure / Google Cloud 部署、监控、自动化与 CI/CD。
-            </p>
-            <button class="service-btn" onclick="openModal('service6')" data-translate="learn_more">
-                了解更多
-            </button>
-        </div>
+      <!-- 云部署 -->
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-cloud"></i></div>
+        <div class="service-title" data-translate="service_6">云部署与维护</div>
+        <div class="service-sub" data-translate="service_6_sub">Cloud Deployment & DevOps</div>
+        <p class="service-desc" data-translate="service_6_desc">
+          AWS / Azure / Google Cloud 部署、监控、自动化与 CI/CD。
+        </p>
+        <button class="service-btn" onclick="openModal('service6')" data-translate="learn_more">
+          了解更多
+        </button>
+      </div>
 
     </div>
+  </div>
 </section>
 
-<!-- ====== 弹窗 ====== -->
+<!-- Modal -->
 <div id="modal" class="modal" onclick="closeModal(event)">
-    <div class="modal-content" id="modalContent">
-        <span class="close" onclick="closeModal(event)">&times;</span>
-        <h2 id="modalTitle"></h2>
-        <p id="modalBody"></p>
-    </div>
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2 id="modalTitle"></h2>
+    <p id="modalBody"></p>
+  </div>
 </div>
-
-
-    <!-- Contact Form -->
-    <section id="contact" class="section contact">
-      <div class="container">
-        <h2 id="contactTitle">联系我们</h2>
-
-        <form id="contactForm" action="https://formspree.io/f/myznzpow" method="POST" class="form">
-          <label id="nameLabel" class="form-label">
-            <span class="label-text">姓名：</span>
-            <input name="name" type="text" required placeholder="" />
-          </label>
-
-          <label id="contactLabel" class="form-label">
-            <span class="label-text">邮箱：</span>
-            <input name="email" type="email" required placeholder="" />
-          </label>
-
-          <label id="messageLabel" class="form-label">
-            <span class="label-text">问题：</span>
-            <textarea name="message" rows="6" required placeholder=""></textarea>
-          </label>
-
-          <button id="sendBtn" type="submit" class="submit-btn">发送</button>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container">
-      <p id="footerText">© <span id="year"></span> Sophia & IT | Powered by GitHub Pages & Formspree</p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
