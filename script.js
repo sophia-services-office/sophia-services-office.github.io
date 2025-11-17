@@ -6,7 +6,7 @@
 const text = {
   zh: {
     hero_title: "Sophia & IT",
-    hero_desc: "Turning Ideas into Digital Reality.",
+    hero_desc: "让创意成为数字现实。",
     cta: "联系我们",
 
     info_title: "公司信息",
@@ -60,7 +60,7 @@ const text = {
 
   hy: {
     hero_title: "Sophia & IT",
-    hero_desc: "Թվային լուծումներ ու տեխնոլոգիական աջակցություն:",
+    hero_desc: "Գաղափարները վերածում ենք թվային իրականության։",
     cta: "Կապ հաստատել",
 
     info_title: "Մեր մասին",
@@ -87,7 +87,7 @@ const text = {
 
   ru: {
     hero_title: "Sophia & IT",
-    hero_desc: "Воплощаем идеи в цифровую реальность.",
+    hero_desc: "Превращаем идеи в цифровую реальность.",
     cta: "Связаться с нами",
 
     info_title: "Информация о компании",
@@ -114,7 +114,7 @@ const text = {
 
   ar: {
     hero_title: "Sophia & IT",
-    hero_desc: "تحويل الأفكار إلى واقع رقمي.",
+    hero_desc: "نحوّل الأفكار إلى واقع رقمي.",
     cta: "اتصل بنا",
 
     info_title: "معلومات الشركة",
@@ -126,7 +126,7 @@ const text = {
     services: [
       "تطوير البرمجيات",
       "مواقع الشركات",
-      "الأنظمة و البنية الخلفية",
+      "الأنظمة والبنية الخلفية",
       "الدعم التقني",
       "تحليل البيانات",
       "إعداد وصيانة الشبكات",
@@ -146,28 +146,28 @@ const text = {
 function setLang(lang) {
   const t = text[lang];
 
-  // RTL 支持
+  /* RTL（阿拉伯语）布局支持 */
   document.body.dir = lang === "ar" ? "rtl" : "ltr";
 
-  // Hero
+  /* Hero 区域 */
   document.getElementById("heroTitle").textContent = t.hero_title;
   document.getElementById("heroSubtitle").textContent = t.hero_desc;
   document.getElementById("heroButton").textContent = t.cta;
 
-  // Info
+  /* 信息卡片 */
   document.getElementById("infoTitle").textContent = t.info_title;
   document.getElementById("addressLabel").textContent = t.address_label;
   document.getElementById("emailLabel").textContent = t.email_label;
   document.getElementById("dateLabel").textContent = t.date_label;
 
-  // Contact
+  /* 联系表单 */
   document.getElementById("contactTitle").textContent = t.contact_title;
   document.getElementById("nameLabel").childNodes[0].textContent = t.name_label;
   document.getElementById("contactLabel").childNodes[0].textContent = t.contact_label;
   document.getElementById("messageLabel").childNodes[0].textContent = t.message_label;
   document.getElementById("sendBtn").textContent = t.send_btn;
 
-  /* 生成服务卡片 */
+  /* 服务列表渲染 */
   const serviceArea = document.getElementById("services");
   serviceArea.innerHTML = "";
 
@@ -180,7 +180,7 @@ function setLang(lang) {
 }
 
 /* ======================================================
-   自动填入年份与日期
+   自动年份 & 自动日期
    ====================================================== */
 document.getElementById("year").textContent = new Date().getFullYear();
 document.getElementById("date").textContent = new Date().toLocaleDateString();
