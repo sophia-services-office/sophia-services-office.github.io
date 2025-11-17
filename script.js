@@ -1,6 +1,7 @@
 /* ======================================================
    Sophia & IT — script.js
    多语言系统 / 服务渲染 / RTL 支持 / 自动年份更新
+   增强：自动检测浏览器语言 + 更稳健的 DOM 操作
    ====================================================== */
 
 const text = {
@@ -60,7 +61,7 @@ const text = {
 
   hy: {
     hero_title: "Sophia & IT",
-    hero_desc: "Գաղափարները վերածում ենք թվային իրականության։",
+    hero_desc: "Գաղափարները վերածում ենք թվային REALITY։",
     cta: "Կապ հաստատել",
 
     info_title: "Մեր մասին",
@@ -126,7 +127,7 @@ const text = {
     services: [
       "تطوير البرمجيات",
       "مواقع الشركات",
-      "الأنظمة والبنية الخلفية",
+      "الأنظمة و البنية الخلفية",
       "الدعم التقني",
       "تحليل البيانات",
       "إعداد وصيانة الشبكات",
@@ -140,50 +141,88 @@ const text = {
   },
 };
 
-/* ======================================================
-   设置语言
-   ====================================================== */
-function setLang(lang) {
-  const t = text[lang];
+/* safe helpers */
+function $(id){ return document.getElementById(id) || null; }
+function qs(selector){ return document.querySelector(selector); }
+function qsa(selector){ return Array.from(document.querySelectorAll(selector)); }
 
-  /* RTL（阿拉伯语）布局支持 */
-  document.body.dir = lang === "ar" ? "rtl" : "ltr";
+/* render language content */
+function setLang(lang){
+  const t = text[lang] || text.en;
 
-  /* Hero 区域 */
-  document.getElementById("heroTitle").textContent = t.hero_title;
-  document.getElementById("heroSubtitle").textContent = t.hero_desc;
-  document.getElementById("heroButton").textContent = t.cta;
+  // RTL
+  document.body.dir = (lang === 'ar') ? 'rtl' : 'ltr';
 
-  /* 信息卡片 */
-  document.getElementById("infoTitle").textContent = t.info_title;
-  document.getElementById("addressLabel").textContent = t.address_label;
-  document.getElementById("emailLabel").textContent = t.email_label;
-  document.getElementById("dateLabel").textContent = t.date_label;
+  // hero
+  const heroTitle = $('heroTitle');
+  if(heroTitle) heroTitle.textContent = t.hero_title;
+  const heroSub = $('heroSubtitle');
+  if(heroSub) heroSub.textContent = t.hero_desc;
+  const heroBtn = $('heroButton');
+  if(heroBtn) heroBtn.textContent = t.cta;
 
-  /* 联系表单 */
-  document.getElementById("contactTitle").textContent = t.contact_title;
-  document.getElementById("nameLabel").childNodes[0].textContent = t.name_label;
-  document.getElementById("contactLabel").childNodes[0].textContent = t.contact_label;
-  document.getElementById("messageLabel").childNodes[0].textContent = t.message_label;
-  document.getElementById("sendBtn").textContent = t.send_btn;
+  // info
+  const infoTitle = $('infoTitle');
+  if(infoTitle) infoTitle.textContent = t.info_title;
+  const addressLabel = $('addressLabel'); if(addressLabel) addressLabel.textContent = t.address_label;
+  const address = $('address'); if(address) address.textContent = (t.address || "");
+  const emailLabel = $('emailLabel'); if(emailLabel) emailLabel.textContent = t.email_label;
+  const emailLink = $('emailLink'); if(emailLink){ emailLink.textContent = t.email || ""; emailLink.href = t.email ? ("mailto:" + t.email) : ""; }
+  const dateLabel = $('dateLabel'); if(dateLabel) dateLabel.textContent = t.date_label;
+  const dateEl = $('date'); if(dateEl) dateEl.textContent = (t.date || new Date().toLocaleDateString());
 
-  /* 服务列表渲染 */
-  const serviceArea = document.getElementById("services");
-  serviceArea.innerHTML = "";
+  // services
+  const servicesTitle = $('servicesTitle'); if(servicesTitle) servicesTitle.textContent = t.services_title || "";
+  const servicesEl = $('services'); if(servicesEl){
+    servicesEl.innerHTML = "";
+    const icons = ["🖥️","🌐","📊","💡","⚙️","🔁"];
+    t.services.forEach((s,i) => {
+      const div = document.createElement('div');
+      div.className = 'service-item';
+      div.innerHTML = `<div class="ico" aria-hidden="true">${icons[i] || "🔹"}</div><div class="text">${s}</div>`;
+      servicesEl.appendChild(div);
+    });
+  }
 
-  t.services.forEach(item => {
-    const div = document.createElement("div");
-    div.className = "service-item";
-    div.textContent = item;
-    serviceArea.appendChild(div);
+  // contact labels
+  const nameSpan = qs('#nameLabel .label-text'); if(nameSpan) nameSpan.textContent = t.name_label;
+  const contactSpan = qs('#contactLabel .label-text'); if(contactSpan) contactSpan.textContent = t.contact_label;
+  const messageSpan = qs('#messageLabel .label-text'); if(messageSpan) messageSpan.textContent = t.message_label;
+  const sendBtn = $('sendBtn'); if(sendBtn) sendBtn.textContent = t.send_btn;
+
+  // mark active lang button
+  qsa('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.lang === lang);
+    b.setAttribute('aria-pressed', b.dataset.lang === lang ? 'true' : 'false');
   });
+
+  // small visual flourish: subtle hero logo pulse when language changes
+  const heroLogo = qs('.hero-logo');
+  if(heroLogo){
+    heroLogo.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.03)' }, { transform: 'scale(1)' }], { duration: 420, easing: 'ease-out' });
+  }
 }
 
-/* ======================================================
-   自动年份 & 自动日期
-   ====================================================== */
-document.getElementById("year").textContent = new Date().getFullYear();
-document.getElementById("date").textContent = new Date().toLocaleDateString();
+/* attach language buttons and behaviors */
+document.addEventListener('DOMContentLoaded', () => {
+  // safe: set year & date
+  const y = $('year'); if(y) y.textContent = new Date().getFullYear();
+  const d = $('date'); if(d && !d.textContent) d.textContent = new Date().toLocaleDateString();
 
-/* 默认语言：英文 */
-setLang("en");
+  // language buttons
+  qsa('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const lang = btn.dataset.lang || 'en';
+      setLang(lang);
+      // small scroll into view for mobile if needed
+      if(window.innerWidth < 600) window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // auto-detect browser language (prefer full match then primary subtag)
+  const browserLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+  const primary = browserLang.split('-')[0];
+  const supported = ['en','zh','hy','ru','ar'];
+  const chosen = supported.includes(primary) ? primary : (supported.includes(browserLang) ? browserLang : 'en');
+  setLang(chosen);
+});
