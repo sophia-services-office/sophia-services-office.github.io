@@ -1,296 +1,95 @@
-/* =========================================================
-   Sophia & IT — 企业级蓝白科技风 style.css
-   适配 index.html + script.js + 多语言 + 响应式布局
-   ========================================================= */
+/* Blue / White corporate style (responsive) */
 
-/* ---------------------------
-   GLOBAL 样式
------------------------------ */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root{
+  --primary:#0056ff;
+  --primary-2:#003da8;
+  --bg:#f5f7fc;
+  --card:#fff;
+  --muted:#5b6b7a;
+  --max:1150px;
+  --radius:12px;
 }
 
-body {
-  font-family: "Inter", sans-serif;
-  background: #f5f7fc;
-  color: #1a1a1a;
-  line-height: 1.6;
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:#14202b;
+  -webkit-font-smoothing:antialiased;
 }
 
-/* 自适应容器 */
-.container {
-  width: 90%;
-  max-width: 1150px;
-  margin: 0 auto;
+/* container */
+.container{width:90%;max-width:var(--max);margin:0 auto;}
+
+/* NAV */
+.nav{
+  position:fixed;top:0;left:0;width:100%;background:linear-gradient(90deg,var(--primary),var(--primary-2));
+  color:#fff;box-shadow:0 4px 14px rgba(3,18,46,0.12);z-index:80;
 }
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0;}
+.nav-left{display:flex;align-items:center;gap:12px}
+.logo-img{height:44px;display:block}
+.brand{font-weight:700;font-size:18px;color:#eaf4ff}
 
+/* center nav links */
+.nav-center{display:flex;gap:18px;align-items:center}
+.nav-link{color:rgba(255,255,255,0.95);text-decoration:none;font-weight:600;padding:8px 6px;border-radius:6px;transition:background .18s}
+.nav-link:hover{background:rgba(255,255,255,0.06)}
 
-/* ---------------------------
-   NAV 导航栏
------------------------------ */
-.nav {
-  width: 100%;
-  background: #ffffff;
-  padding: 14px 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100;
+/* right lang */
+.nav-right{display:flex;align-items:center;gap:10px}
+.lang-buttons{display:flex;gap:8px}
+.lang-btn{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.08);color:#fff;padding:6px 10px;border-radius:8px;cursor:pointer;font-weight:600}
+.lang-btn.active{background:#fff;color:var(--primary);box-shadow:0 6px 18px rgba(3,18,46,0.12)}
+.lang-btn:focus{outline:2px solid rgba(255,255,255,0.14)}
+
+/* Hero */
+.hero{padding-top:110px;padding-bottom:80px;text-align:center;background:linear-gradient(135deg,var(--primary),#0a2d8f);color:#fff}
+.hero-inner{max-width:900px;margin:0 auto}
+.hero h1{font-size:44px;margin:8px 0;font-weight:800}
+.hero-sub{font-size:18px;opacity:.96;margin-bottom:22px}
+.cta{background:#fff;color:var(--primary);padding:12px 22px;border-radius:10px;border:none;font-weight:700;cursor:pointer;box-shadow:0 8px 24px rgba(2,14,60,0.12)}
+
+/* section */
+.section{padding:60px 0}
+.section h2{font-size:28px;color:var(--primary-2);margin-bottom:18px}
+
+/* company info */
+.company-desc{background:var(--card);padding:18px;border-radius:10px;border:1px solid rgba(3,18,46,0.04);box-shadow:0 8px 20px rgba(3,18,46,0.03);color:#243643;line-height:1.7;margin-bottom:18px}
+.meta p{margin:8px 0;color:var(--muted)}
+
+/* services grid */
+.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:12px}
+.service-grid .tile{background:var(--card);padding:16px;border-radius:10px;border:1px solid rgba(3,18,46,0.04);font-weight:700;color:var(--primary-2);box-shadow:0 6px 14px rgba(3,18,46,0.04);text-align:center;transition:transform .18s}
+.service-grid .tile:hover{transform:translateY(-6px)}
+
+/* form */
+.form{max-width:720px}
+.form-label{display:block;margin-bottom:10px;font-weight:600;color:#253a4a}
+.label-text{display:block;margin-bottom:6px}
+input,textarea{width:100%;padding:12px;border-radius:8px;border:1px solid #d6e3ff;background:#fff;font-size:15px;margin-bottom:12px}
+.submit-btn{background:var(--primary);color:#fff;padding:12px 20px;border-radius:10px;border:0;font-weight:700;cursor:pointer}
+.submit-btn:hover{background:var(--primary-2)}
+
+/* footer */
+.footer{background:#fff;padding:26px 0;margin-top:40px;border-top:1px solid #eef3ff;color:var(--muted);text-align:center}
+
+/* responsive */
+@media (max-width:900px){
+  .nav-center{display:none}
+  .nav-inner{padding:10px 0}
+  .hero h1{font-size:34px}
+  .hero-sub{font-size:16px}
 }
-
-.nav-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+@media (max-width:520px){
+  .nav-inner{flex-direction:column;gap:8px;align-items:flex-start;padding:10px}
+  .logo-img{height:40px}
+  .hero{padding-top:100px}
+  .hero h1{font-size:28px}
 }
-
-.logo img {
-  height: 48px;
-}
-
-/* 语言按钮 */
-.lang-switch {
-  display: flex;
-  gap: 8px;
-}
-
-.lang-btn {
-  padding: 6px 12px;
-  border: 1px solid #c9d8ff;
-  border-radius: 6px;
-  background: #e8f0ff;
-  color: #003da8;
-  cursor: pointer;
-  font-size: 13px;
-  transition: 0.2s;
-}
-
-.lang-btn:hover {
-  background: #dce8ff;
-}
-
-
-/* ---------------------------
-   HERO 区域
------------------------------ */
-.hero {
-  padding-top: 150px; /* 让位给 fixed 导航栏 */
-  padding-bottom: 100px;
-  background: linear-gradient(135deg, #0056ff, #003099);
-  text-align: center;
-  color: #ffffff;
-}
-
-.hero h1 {
-  font-size: 46px;
-  font-weight: 700;
-  margin-bottom: 14px;
-}
-
-.hero p {
-  font-size: 20px;
-  opacity: 0.95;
-  margin-bottom: 28px;
-}
-
-.cta-btn {
-  background: #ffffff;
-  color: #0056ff;
-  padding: 12px 30px;
-  font-size: 18px;
-  font-weight: 700;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-  transition: 0.25s;
-}
-
-.cta-btn:hover {
-  background: #eef2ff;
-}
-
-
-/* ---------------------------
-   SECTION 泛用样式
------------------------------ */
-section {
-  padding: 60px 0;
-}
-
-section h2 {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: #0035a5;
-}
-
-
-/* ---------------------------
-   公司信息 Company Info
------------------------------ */
-.info p {
-  font-size: 17px;
-  margin-bottom: 10px;
-}
-
-.info a {
-  color: #0056ff;
-}
-
-
-/* ---------------------------
-   服务项目 Services Grid
------------------------------ */
-.service-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 20px;
-  margin-top: 25px;
-}
-
-.service-list div {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 18px 14px;
-  border: 1px solid #d7e3ff;
-  text-align: center;
-  font-weight: 600;
-  color: #0035a5;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-  transition: 0.2s;
-}
-
-.service-list div:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.09);
-}
-
-
-/* ---------------------------
-   联系表单 Contact Form
------------------------------ */
-.contact form {
-  max-width: 650px;
-}
-
-label .label-text {
-  font-weight: 600;
-  display: inline-block;
-  margin-bottom: 6px;
-}
-
-input,
-textarea {
-  width: 100%;
-  padding: 14px;
-  border: 1px solid #cdd9ff;
-  border-radius: 8px;
-  font-size: 15px;
-  margin-bottom: 18px;
-  background: #ffffff;
-}
-
-textarea {
-  resize: vertical;
-}
-
-button#sendBtn {
-  background: #0056ff;
-  color: white;
-  padding: 14px 26px;
-  border: none;
-  border-radius: 8px;
-  font-size: 17px;
-  cursor: pointer;
-  font-weight: 600;
-  margin-top: 8px;
-  transition: 0.2s;
-}
-
-button#sendBtn:hover {
-  background: #003da8;
-}
-
-
-/* ---------------------------
-   FOOTER 页脚
------------------------------ */
-.footer {
-  text-align: center;
-  padding: 25px 0;
-  background: #ffffff;
-  margin-top: 80px;
-  color: #777;
-  font-size: 14px;
-  border-top: 1px solid #e2e6ef;
-}
-
-
-/* ---------------------------
-   响应式 Mobile Responsive
------------------------------ */
-@media (max-width: 768px) {
-
-  .hero h1 {
-    font-size: 34px;
-  }
-
-  .hero p {
-    font-size: 18px;
-  }
-
-  .cta-btn {
-    font-size: 16px;
-  }
-
-  .lang-switch {
-    gap: 4px;
-  }
-
-  .lang-btn {
-    padding: 5px 10px;
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-
-  .nav-content {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .logo img {
-    height: 42px;
-  }
-
-  .hero h1 {
-    font-size: 28px;
-  }
-
-  .hero {
-    padding-top: 120px;
-    padding-bottom: 80px;
-  }
-}
-
-/* ---------------------------
-   RTL (Arabic) Support
------------------------------ */
-body[dir="rtl"] {
-  direction: rtl;
-  text-align: right;
-}
-
-body[dir="rtl"] .service-list div {
-  text-align: center;
-}
-
-body[dir="rtl"] input,
-body[dir="rtl"] textarea {
-  text-align: right;
-}
+ /* RTL support */
+[dir="rtl"]{direction:rtl}
+[dir="rtl"] .nav-center{direction:rtl}
+[dir="rtl"] .company-desc{text-align:right}
+[dir="rtl"] input, [dir="rtl"] textarea {text-align:right}
