@@ -1,46 +1,260 @@
-/* =========================
-   Sophia & IT - style.css
-   企业级科技风 / 高端蓝白设计
-   ========================= */
+/* ============================================================
+   Sophia & IT — style.css
+   科技蓝主题 / 响应式 / 卡片动画 / RTL 支持
+   ============================================================ */
 
-/* --- 主题变量 --- */
 :root {
-  --primary: #0b74de;
-  --primary-2: #3da0ff;
-  --bg: #f5f7fb;
-  --card-bg: #ffffff;
-  --muted: #6b7280;
+  --bg-dark: #0a1124;
+  --bg-light: #0f1a33;
+  --blue: #1ea1ff;
+  --blue-light: #4ecbff;
+  --text-light: #e8eef7;
+  --text-soft: #b8c3d9;
+  --card-bg: #111a2e;
+  --border-light: rgba(255, 255, 255, 0.1);
 
-  --radius-xl: 18px;
-  --radius-lg: 12px;
-
-  --max-width: 1150px;
-  --gap: 22px;
-
-  --shadow-sm: 0 3px 8px rgba(0,0,0,0.06);
-  --shadow-lg: 0 12px 32px rgba(15,23,42,0.10);
+  --radius: 14px;
+  --shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
 }
 
-/* 全局 */
-* { box-sizing: border-box; }
-body {
+/* Reset */
+* {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
-  background: var(--bg);
-  color: #222;
-  line-height: 1.6;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
-/* 链接 */
-a { color: var(--primary); text-decoration: none; }
-a:hover { text-decoration: underline; }
+body {
+  background: linear-gradient(135deg, #07101f 0%, #0f1c3a 100%);
+  color: var(--text-light);
+  overflow-x: hidden;
+  transition: 0.3s;
+}
 
-/* ===========================
-   导航栏 
-   =========================== */
+/* =============== Navigation =============== */
 
 .navbar {
+  width: 100%;
+  padding: 15px 6%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  pa
+  background: rgba(10, 16, 32, 0.7);
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  z-index: 100;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  height: 42px;
+}
+
+.logo-text {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--blue);
+}
+
+/* Language Buttons */
+.lang-buttons button {
+  background: none;
+  border: 1px solid var(--blue);
+  color: var(--blue);
+  padding: 6px 14px;
+  margin-left: 6px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.lang-buttons button:hover {
+  background: var(--blue);
+  color: #fff;
+}
+
+/* =============== HERO SECTION =============== */
+
+.hero {
+  text-align: center;
+  padding: 120px 20px 80px;
+}
+
+.hero-logo {
+  height: 110px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--blue-light);
+}
+
+.hero p {
+  margin-top: 10px;
+  font-size: 20px;
+  color: var(--text-soft);
+}
+
+.hero-btn {
+  margin-top: 25px;
+  display: inline-block;
+  padding: 12px 28px;
+  background: var(--blue);
+  color: #fff;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 18px;
+  box-shadow: var(--shadow);
+  transition: 0.3s;
+}
+
+.hero-btn:hover {
+  background: var(--blue-light);
+  transform: translateY(-3px);
+}
+
+/* =============== CONTAINER (MAIN) =============== */
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto 60px;
+}
+
+/* =============== CARD =============== */
+
+.card {
+  background: var(--card-bg);
+  padding: 25px;
+  margin: 25px 0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-light);
+}
+
+.card h3 {
+  font-size: 26px;
+  margin-bottom: 18px;
+  color: var(--blue-light);
+}
+
+/* =============== SERVICES GRID =============== */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+}
+
+.service-item {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 18px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-light);
+  text-align: center;
+  transition: 0.25s;
+}
+
+.service-item:hover {
+  background: rgba(50, 150, 255, 0.15);
+  border-color: var(--blue);
+  transform: translateY(-4px);
+}
+
+/* =============== FORM =============== */
+
+form label {
+  display: block;
+  margin: 14px 0;
+  color: var(--text-light);
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-light);
+  background: #0d162c;
+  color: var(--text-light);
+  font-size: 16px;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: var(--blue);
+}
+
+.submit {
+  margin-top: 10px;
+  padding: 12px 26px;
+  background: var(--blue);
+  border: none;
+  color: white;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 18px;
+  transition: 0.3s;
+  box-shadow: var(--shadow);
+}
+
+.submit:hover {
+  background: var(--blue-light);
+  transform: translateY(-3px);
+}
+
+/* =============== FOOTER =============== */
+
+footer {
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 60px;
+  background: rgba(0, 0, 0, 0.15);
+  border-top: 1px solid var(--border-light);
+  color: var(--text-soft);
+}
+
+/* =============== RTL (Arabic) =============== */
+body[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+body[dir="rtl"] .navbar {
+  flex-direction: row-reverse;
+}
+
+body[dir="rtl"] .logo-area {
+  flex-direction: row-reverse;
+}
+
+body[dir="rtl"] .lang-buttons button {
+  margin-left: 0;
+  margin-right: 6px;
+}
+
+/* =============== RESPONSIVE =============== */
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 34px;
+  }
+  .hero-logo {
+    height: 90px;
+  }
+  .navbar {
+    padding: 12px 5%;
+  }
+}
