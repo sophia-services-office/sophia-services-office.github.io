@@ -1,180 +1,74 @@
-/* =======================================
-   Sophia & IT — 蓝白科技企业风 Style
-   适配 Hero、Logo、导航、多语言、卡片
-   ======================================= */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sophia & IT Services</title>
 
-/* Global */
-body {
-  margin: 0;
-  font-family: "Roboto", sans-serif;
-  background: #f4f7fc;
-  color: #1a1a1a;
-}
+    <!-- 修复后的 CSS 路径 -->
+    <link rel="stylesheet" href="style.css">
 
-/* NAVBAR */
-.navbar {
-  width: 100%;
-  height: 70px;
-  background: white;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 40px;
-  position: fixed;
-  top: 0;
-  z-index: 10;
-}
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
 
-.logo-area {
-  display: flex;
-  align-items: center;
-}
+<body>
 
-.logo-img {
-  height: 42px;
-  margin-right: 10px;
-}
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="logo-area">
+            <img src="assets/logo3.png" class="logo-img">
+            <span class="logo-text">Sophia & IT</span>
+        </div>
 
-.logo-text {
-  font-size: 20px;
-  font-weight: 700;
-  color: #0056ff;
-}
+        <div class="lang-buttons">
+            <button onclick="setLanguage('en')">EN</button>
+            <button onclick="setLanguage('zh')">中文</button>
+            <button onclick="setLanguage('jp')">日本語</button>
+            <button onclick="setLanguage('fr')">FR</button>
+        </div>
+    </div>
 
-.lang-buttons button {
-  padding: 6px 12px;
-  margin-left: 6px;
-  background: #e8f0ff;
-  border: 1px solid #b7d0ff;
-  color: #0056ff;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 13px;
-}
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="assets/logo3.png" class="hero-logo">
+            <h1 id="hero-title">Turning Ideas into Digital Reality</h1>
+            <p id="hero-subtitle">Professional IT solutions for global businesses</p>
+            <a href="#services" class="hero-btn" id="hero-btn">Our Services</a>
+        </div>
+    </section>
 
-.lang-buttons button:hover {
-  background: #d9e6ff;
-}
+    <!-- MAIN -->
+    <div class="container">
 
-/* HERO SECTION */
-.hero {
-  width: 100%;
-  height: 450px;
-  background: linear-gradient(135deg, #0056ff, #0a2d8f);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 70px; /* fix navbar */
-  text-align: center;
-  color: white;
-}
+        <div class="card">
+            <h3 id="service-title">Our Services</h3>
+            <div class="services-grid">
+                <div class="service-box" id="srv1">Web Development</div>
+                <div class="service-box" id="srv2">IT Consulting</div>
+                <div class="service-box" id="srv3">Cloud Deployment</div>
+                <div class="service-box" id="srv4">Business Automation</div>
+            </div>
+        </div>
 
-.hero-logo {
-  width: 110px;
-  margin-bottom: 15px;
-}
+        <div class="card">
+            <h3 id="contact-title">Contact Us</h3>
+            <form>
+                <label id="label-name">Your Name</label>
+                <input type="text">
 
-.hero-content h1 {
-  font-size: 42px;
-  margin: 10px 0;
-  font-weight: 700;
-}
+                <label id="label-message">Message</label>
+                <textarea></textarea>
 
-.hero-content p {
-  font-size: 20px;
-  opacity: 0.95;
-  margin-bottom: 25px;
-}
+                <button class="submit" id="submit-btn">Send</button>
+            </form>
+        </div>
 
-.hero-btn {
-  padding: 12px 26px;
-  background: #ffffff;
-  color: #0056ff;
-  text-decoration: none;
-  font-weight: 700;
-  border-radius: 8px;
-  font-size: 18px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-}
+    </div>
 
-.hero-btn:hover {
-  background: #e9eeff;
-}
+    <footer id="footer-text">© 2025 Sophia & IT Services</footer>
 
-/* MAIN CONTAINER */
-.container {
-  max-width: 950px;
-  margin: 50px auto;
-  padding: 20px;
-}
-
-/* CARDS */
-.card {
-  background: white;
-  border-radius: 12px;
-  padding: 25px;
-  margin-bottom: 30px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-}
-
-.card h3 {
-  font-size: 22px;
-  color: #003cb3;
-  margin-bottom: 15px;
-}
-
-/* SERVICES GRID */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 18px;
-}
-
-.service-box {
-  background: #f4f7ff;
-  border: 1px solid #cfdfff;
-  padding: 15px;
-  border-radius: 10px;
-  text-align: center;
-  font-weight: bold;
-  color: #003cb3;
-}
-
-/* FORM */
-form label {
-  display: block;
-  font-size: 16px;
-  margin-bottom: 10px;
-}
-
-input, textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #bcd0ff;
-  border-radius: 6px;
-  margin-top: 6px;
-}
-
-.submit {
-  background: #0056ff;
-  color: white;
-  padding: 12px 22px;
-  border: none;
-  margin-top: 15px;
-  cursor: pointer;
-  font-size: 16px;
-  border-radius: 8px;
-}
-
-.submit:hover {
-  background: #003cb3;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-  color: #555;
-}
+    <script src="script.js"></script>
+</body>
+</html>
